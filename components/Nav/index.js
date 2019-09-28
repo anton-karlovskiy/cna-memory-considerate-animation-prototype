@@ -4,7 +4,7 @@ import SwitchWithLabel from '../SwitchWithLabel';
 
 const githubLink = {
   label: 'GitHub',
-  href: 'https://github.com/alexander-dev-hub/react-next-motion',
+  href: 'https://github.com/anton-karlovskiy/cna-memory-considerate-animation',
 };
 
 const Nav = ({ manualEnabled, enableManualAnimation, toggleAnimation }) => {
