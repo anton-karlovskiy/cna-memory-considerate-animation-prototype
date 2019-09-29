@@ -1,5 +1,5 @@
 
-const CheckboxWithLabel = ({ label, toggle }) => {
+const CheckboxWithLabel = ({ label, toggle, ...rest }) => {
   const toggleHandler = event => {
     toggle(event.target.checked);
   };
@@ -7,7 +7,7 @@ const CheckboxWithLabel = ({ label, toggle }) => {
   return (
     <div className='checkbox'>
       <label>
-        <input type='checkbox' onChange={toggleHandler}/>
+        <input type='checkbox' onChange={toggleHandler} {...rest} />
         {label}
       </label>
       <style jsx global>{`

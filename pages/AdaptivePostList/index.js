@@ -1,6 +1,7 @@
 
-import { Suspense, Fragment, useState } from 'react';
+import { Suspense, Fragment, useContext } from 'react';
 
+import AnimationEmulationContext from '../../components/AnimationEmulationContext';
 import AnimationPostList from '../../components/AnimationPostList';
 import SimplePostList from '../../components/SimplePostList';
 import Nav from '../../components/Nav';
@@ -10,17 +11,11 @@ import { useMemoryStatus } from '../../utils/hooks';
 const Loading = () => <Fragment>Loading...</Fragment>;
 
 const AdaptivePostList = () => {
-  const [manualEnabled, setManualEnabled] = useState(false);
-  const [isAnimationOn, setAnimationOn] = useState(true);
   const memoryStatus = useMemoryStatus();
-
-  const enableManualAnimationHandler = flag => {
-    setManualEnabled(flag);
-  };
-
-  const toggleAnimationHandler = event => {
-    setAnimationOn(event.target.checked);
-  };
+  const {
+    manualEnabled,
+    isAnimationOn
+  } = useContext(AnimationEmulationContext);
   
   if (!memoryStatus) return <Loading />;
   const { overLoaded } = memoryStatus;
@@ -40,10 +35,7 @@ const AdaptivePostList = () => {
 
   return (
     <Fragment>
-      <Nav 
-        manualEnabled={manualEnabled}
-        enableManualAnimation={enableManualAnimationHandler}
-        toggleAnimation={toggleAnimationHandler}/>
+      <Nav />
       <h1 className='post-list-title'>
         {isAnimationOn ? 'Next.js & Framer Motion Page' : 'Next.js & Simple Page(No Animation)'}
       </h1>
