@@ -1,9 +1,10 @@
 
+import { Fragment } from 'react';
 import { useMemoryStatus } from '../../utils/hooks';
 
 const MemoryStatus = () => {
   const memoryStatus = useMemoryStatus();
-  if (!memoryStatus) return <p>Loading...</p>;
+  if (!memoryStatus) return <Fragment>Loading...</Fragment>;
 
   const {
     totalJSHeapSize,

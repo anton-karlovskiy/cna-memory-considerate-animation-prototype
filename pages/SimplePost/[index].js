@@ -1,10 +1,10 @@
+
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 
 import posts from '../../data/posts';
-
-import PostInfo from '../../components/PostInfo';
 import Layout from '../../components/layout';
+import PostInfo from '../../components/PostInfo';
 
 const SimplePost = props => {
   useEffect(() => {

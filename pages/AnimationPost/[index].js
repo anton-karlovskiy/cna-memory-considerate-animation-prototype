@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -49,7 +50,7 @@ const backVariants = {
   }
 };
 
-const AnimationPost = props => {
+const AnimationPost = ({ post }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -58,20 +59,17 @@ const AnimationPost = props => {
     <Layout>
       <div className="container post">
         <motion.div initial="exit" animate="enter" exit="exit">
-          <motion.img variants={imageVariants} src={`/static/images/${props.post.id}.jpg`} />
-
+          <motion.img variants={imageVariants} src={`/static/images/${post.id}.jpg`} />
           <motion.div variants={textVariants}>
-            <PostInfo post={props.post} />
-            <p>{props.post.text}</p>
+            <PostInfo post={post} />
+            <p>{post.text}</p>
           </motion.div>
-
           <motion.div variants={backVariants}>
             <Link href="/">
               <a>Back to list</a>
             </Link>
           </motion.div>
         </motion.div>
-
         <style jsx>{`
           .post {
             margin: 20px;

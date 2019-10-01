@@ -1,6 +1,6 @@
 
-import AdaptivePostList from '../pages/AdaptivePostList';
 import Layout from '../components/layout';
+import AdaptivePostList from '../pages/AdaptivePostList';
 
 const Home = () => {
   return (
