@@ -79,7 +79,7 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
     pageProps = await Component.getInitialProps(ctx);
   }
   const clientHintDeviceMemory = ctx.req ? ctx.req.headers['device-memory'] : null;
-  const memoryStatus = useMemoryStatus();
+  const { memoryStatus } = useMemoryStatus();
   pageProps = {...pageProps, memoryStatus, clientHintDeviceMemory};
   return {pageProps};
 };
