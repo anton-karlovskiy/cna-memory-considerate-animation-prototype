@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { useState } from '../node_modules/react';
+import { useState } from 'react';
 
 const CLIENT_SIDE_UNSUPPORT_MESSAGE = 'The Memory Status API is not supported on this platform.';
 const SERVER_SIDE_UNSUPPORT_MESSAGE = 'This Memory React Hook uses Window interface so it\'s not possible to use this on Server Side Rendering';
