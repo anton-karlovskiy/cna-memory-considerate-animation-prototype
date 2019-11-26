@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2019 Google LLC
  *
@@ -15,27 +14,8 @@
  * limitations under the License.
  */
 
-const CheckboxWithLabel = ({ label, onChange, ...rest }) => {
-  const onChangeHandler = event => {
-    onChange(event.target.checked);
-  };
+import { createContext } from 'react';
 
-  return (
-    <div className='checkbox'>
-      <label>
-        <input type='checkbox' onChange={onChangeHandler} {...rest} />
-        {label}
-      </label>
-      <style jsx>{`
-        div.checkbox {
-          margin-left: 20px;
-          padding: 8px;
-          border: 1px solid #1890ff;
-          border-radius: 20px;
-        }
-      `}</style>
-    </div>
-  )
-};
+const AnimationEmulationContext = createContext();
 
-export default CheckboxWithLabel;
+export default AnimationEmulationContext;
