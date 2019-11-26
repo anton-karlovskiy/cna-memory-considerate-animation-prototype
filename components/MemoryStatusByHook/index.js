@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-const MemoryStatusByReactHook = ({ memoryStatus }) => {
+const MemoryStatusByHook = ({ memoryStatus }) => {
   const {
     totalJSHeapSize,
     usedJSHeapSize,
     jsHeapSizeLimit,
     deviceMemory,
     overLoaded,
-    unsupportMessage
+    unsupported
   } = memoryStatus;
 
   const memoryStatusList = [
@@ -38,8 +38,8 @@ const MemoryStatusByReactHook = ({ memoryStatus }) => {
       value: `${jsHeapSizeLimit} (Byte)`
     },
     {
-      label: 'DeviceMemory',
-      value: `${deviceMemory} (GByte)`
+      label: 'Device Memory',
+      value: `${deviceMemory} (GB)`
     },
     {
       label: 'Memory Overloaded?',
@@ -48,18 +48,17 @@ const MemoryStatusByReactHook = ({ memoryStatus }) => {
   ];
 
   return (
-    <div>
-      { unsupportMessage ? (
-        <p>{unsupportMessage}</p>
+    <>
+      { unsupported ? (
+        <p>The Memory Status API is not supported on this platform or not available on server side rendering.</p>
       ) : (
-        <div>
-          <div className="tags">
-            { memoryStatusList.map(memoryStatusListItem => (
-              <div key={memoryStatusListItem.label} className="tag">
-                <div className='tag-value'>{memoryStatusListItem.value}</div>
-                <div className='tag-label'>{memoryStatusListItem.label}</div>
-              </div>
-            )) }
+        <div className='tags'>
+          { memoryStatusList.map(memoryStatusListItem => (
+            <div key={memoryStatusListItem.label} className='tag'>
+              <div className='tag-value'>{memoryStatusListItem.value}</div>
+              <div className='tag-label'>{memoryStatusListItem.label}</div>
+            </div>
+          )) }
           <style jsx>{`
             .tags {
               display: flex;
@@ -70,11 +69,6 @@ const MemoryStatusByReactHook = ({ memoryStatus }) => {
               width: 20%;
               min-width: 120px;
               padding: 10px;
-            }
-            @media (max-width: 700px) {
-              .post {
-                width: auto;
-              }
             }
             .tag-label {
               margin-bottom: 4px;
@@ -87,10 +81,9 @@ const MemoryStatusByReactHook = ({ memoryStatus }) => {
             }
           `}</style>
         </div>
-      </div>
       ) }
-    </div>
+    </>
   );
 };
 
-export default MemoryStatusByReactHook;
+export default MemoryStatusByHook;

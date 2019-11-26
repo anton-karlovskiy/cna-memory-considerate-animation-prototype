@@ -18,11 +18,11 @@ import { useContext } from 'react';
 
 import SwitchWithLabel from '../SwitchWithLabel';
 import CheckboxWithLabel from '../CheckboxWithLabel';
-import AnimationEmulationContext from '../AnimationEmulationContext';
+import { AnimationEmulationContext } from '../../contexts';
 
 const githubLink = {
   label: 'GitHub',
-  href: 'https://github.com/anton-karlovskiy/cna-memory-considerate-animation'
+  href: 'https://github.com/kheruc/rt-next-motion'
 };
 
 const Nav = () => {
@@ -44,7 +44,7 @@ const Nav = () => {
           <CheckboxWithLabel
             label='Enable Manual Animation'
             checked={manualEnabled}
-            toggle={enableManualAnimationHandler} />
+            onChange={enableManualAnimationHandler} />
         </li>
         <li><a href={githubLink.href}>{githubLink.label}</a></li>
       </ul>
